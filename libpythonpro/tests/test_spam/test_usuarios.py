@@ -1,31 +1,15 @@
-import pytest
-from libpythonpro.spam.db import Conexao
 from libpythonpro.spam.models import Usuario
 
 
-@pytest.fixture(scope='session')
-def conexao():
-    #Setup
-    conexao_obj = Conexao()
-    yield conexao_obj
-    # Tear Down
-    conexao_obj.fechar()
-
-@pytest.fixture
-def sessao(conexao):
-    sessao_obj = conexao.gerar_sessao()
-    yield sessao_obj
-    sessao_obj.roll_back()
-    sessao_obj.fechar()
-
 def test_salvar_usuario(sessao):
-    usuario = Usuario (nome='joao')
+    usuario = Usuario(nome='joao', email='joaogarciadelimaneto@gmail.com')
     sessao.salvar(usuario)
     assert isinstance(usuario.id, int)
 
 
 def test_listar_usuario(sessao):
-    usuarios = [Usuario(nome='joao'), Usuario(nome='jones')]
+    usuarios = [Usuario(nome='joao', email='joaogarciadelimaneto@gmail.com'),
+                Usuario(nome='jones', email='joaogarciadelimaneto@gmail.com')]
     for usuario in usuarios:
         sessao.salvar(usuario)
     assert usuarios == sessao.listar()
