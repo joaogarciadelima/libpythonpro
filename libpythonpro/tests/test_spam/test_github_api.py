@@ -7,7 +7,7 @@ from libpythonpro import github_api
 
 @pytest.fixture
 def avatar_url():
-    resp_mock = Mock ()
+    resp_mock = Mock()
     url = "https://avatars2.githubusercontent.com/u/12092339?v=4"
     resp_mock.json.return_value = {
         "login": "joaogarciadelima",
@@ -15,7 +15,7 @@ def avatar_url():
         "avatar_url": url,
     }
     get_original = github_api.requests.get
-    github_api.requests.get = Mock (return_value=resp_mock)
+    github_api.requests.get = Mock(return_value=resp_mock)
     yield url
     github_api.requests.get = get_original
 
