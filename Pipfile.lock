@@ -163,10 +163,10 @@
         },
         "packaging": {
             "hashes": [
-                "sha256:28b924174df7a2fa32c1953825ff29c61e2f5e082343165438812f00d3a7fc47",
-                "sha256:d9551545c6d761f3def1677baf08ab2a3ca17c56879e70fecba2fc4dde4ed108"
+                "sha256:05af3bb85d320377db281cf254ab050e1a7ebcbf5410685a9a407e18a1f81236",
+                "sha256:eb41423378682dadb7166144a4926e443093863024de508ca5c9737d6bc08376"
             ],
-            "version": "==19.2"
+            "version": "==20.7"
         },
         "pluggy": {
             "hashes": [
